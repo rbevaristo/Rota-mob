@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
 /**
- * Generated class for the UserprofilePage page.
+ * Generated class for the EmployeeprofilePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,10 +11,10 @@ import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
 @Component({
-  selector: 'page-userprofile',
-  templateUrl: 'userprofile.html',
+  selector: 'page-employeeprofile',
+  templateUrl: 'employeeprofile.html',
 })
-export class UserprofilePage {
+export class EmployeeprofilePage {
   public profile = {
     firstname: null,
     lastname: null,
@@ -38,7 +38,7 @@ export class UserprofilePage {
   }
 
   getMyData(){
-    this.http.get('http://localhost:8000/api/v1/profile').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.http.get('http://localhost:8000/api/v1/employee/profile').subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){
@@ -61,8 +61,7 @@ export class UserprofilePage {
   }
 
   editProfile(){
-    this.http.post('http://localhost:8000/api/v1/profile/update', this.profile).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.http.post('http://localhost:8000/api/v1/employee/profile/update', this.profile).subscribe(data => this.handleResponse(data), error => this.handleError(error));
 
   }
-
 }

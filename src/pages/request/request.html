@@ -1,0 +1,61 @@
+<!--
+  Generated template for the RequestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>ROUTA - Request</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="card-background-page">
+
+    <ion-card>
+
+        <ion-card-header text-center>
+            Request for Leave
+        </ion-card-header>
+
+        <ion-card-content padding>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Request</ion-label>
+                    <ion-select #title>
+                        <ion-option value="Vacation Leave">Vacation Leave</ion-option>
+                        <ion-option value="Sick Leave">Sick Leave</ion-option>
+                        <ion-option value="Emergency Leave">Emergency Leave</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>From</ion-label>
+                    <ion-input type="date" #from></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>To</ion-label>
+                    <ion-input type="date" #to></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Message</ion-label>
+                    <ion-textarea #message></ion-textarea>
+                </ion-item>
+
+            </ion-list>
+
+            <div padding>
+
+                <button ion-button block (click)="send()">Sign In</button>
+
+            </div>
+
+        </ion-card-content>
+
+    </ion-card>
+
+</ion-content>

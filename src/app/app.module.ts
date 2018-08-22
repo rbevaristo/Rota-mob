@@ -27,6 +27,9 @@ import { EvalFilesPage } from '../pages/eval-files/eval-files';
 import { EvalFormPage } from '../pages/eval-form/eval-form';
 import { ShareProvider } from '../providers/share/share';
 import { UserprofilePage } from '../pages/userprofile/userprofile';
+import { EmployeeprofilePage } from '../pages/employeeprofile/employeeprofile';
+import { RequestPage } from '../pages/request/request';
+import { EmpevalfilesPage } from '../pages/empevalfiles/empevalfiles';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { UserprofilePage } from '../pages/userprofile/userprofile';
     EvalFilesPage,
     EvalFormPage,
     UserprofilePage,
-    EdashboardPage
+    EdashboardPage,
+    EmployeeprofilePage,
+    RequestPage,
+    EmpevalfilesPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +75,10 @@ import { UserprofilePage } from '../pages/userprofile/userprofile';
     EvalFilesPage,
     EvalFormPage,
     UserprofilePage,
-    EdashboardPage
+    EdashboardPage,
+    EmployeeprofilePage,
+    RequestPage,
+    EmpevalfilesPage
   ],
   providers: [
     StatusBar,

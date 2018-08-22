@@ -15,6 +15,9 @@ import { TeamPage } from '../pages/team/team';
 import { ServicesPage } from '../pages/services/services';
 import { AboutPage } from '../pages/about/about';
 import { UserprofilePage } from '../pages/userprofile/userprofile';
+import { EmployeeprofilePage } from '../pages/employeeprofile/employeeprofile';
+import { RequestPage } from '../pages/request/request';
+import { EmpevalfilesPage } from '../pages/empevalfiles/empevalfiles';
 
 @Component({
   templateUrl: 'app.html'
@@ -54,6 +57,9 @@ export class MyApp {
 
     this.EdashboardPages = [
       { title: 'Dashboard', component: EdashboardPage},
+      { title: 'Profile', component: EmployeeprofilePage},
+      { title: 'Request Leave', component: RequestPage},
+      { title: 'Evaluation', component: EmpevalfilesPage},
       { title: 'Logout', component: LogoutPage }
     ];
   }
