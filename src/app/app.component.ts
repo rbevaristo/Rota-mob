@@ -9,6 +9,12 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { AuthProvider } from '../providers/auth/auth';
 import { LogoutPage } from '../pages/logout/logout';
 import { EmployeesPage } from '../pages/employees/employees';
+import { EdashboardPage } from '../pages/edashboard/edashboard';
+import { ContactPage } from '../pages/contact/contact';
+import { TeamPage } from '../pages/team/team';
+import { ServicesPage } from '../pages/services/services';
+import { AboutPage } from '../pages/about/about';
+import { UserprofilePage } from '../pages/userprofile/userprofile';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,6 +26,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
   dashboardPages: Array<{title: string, component: any}>;
+  EdashboardPages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform, 
@@ -32,11 +39,21 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'About', component: AboutPage },
+      { title: 'Services', component: ServicesPage },
+      { title: 'Team', component: TeamPage },
+      { title: 'Contact Us', component: ContactPage },
       { title: 'Login', component: LoginPage}
     ];
     this.dashboardPages = [
       { title: 'Dashboard', component: DashboardPage},
+      { title: 'Profile', component: UserprofilePage},
       { title: 'Employees', component: EmployeesPage},
+      { title: 'Logout', component: LogoutPage }
+    ];
+
+    this.EdashboardPages = [
+      { title: 'Dashboard', component: EdashboardPage},
       { title: 'Logout', component: LogoutPage }
     ];
   }
@@ -58,6 +75,10 @@ export class MyApp {
 
   isAuthenticated() {
     return this.authService.authenticated();
+  }
+
+  isUser() {
+    return this.authService.authenticatedUser();
   }
 
 }

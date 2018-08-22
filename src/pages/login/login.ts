@@ -4,6 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { DashboardPage } from '../dashboard/dashboard';
 import { TokenProvider } from '../../providers/token/token';
+import { EdashboardPage } from '../edashboard/edashboard';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,6 +21,8 @@ import { TokenProvider } from '../../providers/token/token';
 export class LoginPage {
   @ViewChild('username') username;
   @ViewChild('password') password;
+
+  private who;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -56,23 +59,48 @@ export class LoginPage {
         loading.dismiss();
       }, 3000);
 
-      let form = {
-        email: this.username.value,
-        password: this.password.value
-      };
-
-      this.http.post('http://localhost:8000/api/v1/login', form).subscribe(
-        data => this.handleResponse(data),
-        error => this.handleError(error)
-      );
+      if(this.validateEmail(this.username.value)){
+        let form = {
+          email: this.username.value.toLowerCase(),
+          password: this.password.value.toLowerCase()
+        };
+  
+        this.http.post('http://localhost:8000/api/v1/login', form).subscribe(
+          data => this.handleResponse(data, DashboardPage),
+          error => this.handleError(error)
+        );
+      } else {
+        let form = {
+          username: this.username.value.toLowerCase(),
+          password: this.password.value.toLowerCase()
+        };
+  
+        this.http.post('http://localhost:8000/api/v1/employee/login', form).subscribe(
+          data => this.handleResponse(data, EdashboardPage),
+          error => this.handleError(error)
+        );
+      }
+      
     }
     
   } 
 
-  handleResponse(data){
+  validateEmail(email){
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return (re.test(email)) ? true : false; 
+  }
+
+  handleResponse(data, page){
     this.auth.login();
-    this.token.handle(data.access_token);
-    this.navCtrl.setRoot(DashboardPage);
+    if(page == DashboardPage){
+      this.who = 'user';
+      this.auth.user();
+    } else {
+      this.who = 'employee';
+      this.auth.employee();
+    }
+    this.token.handle(data.access_token, this.who);
+    this.navCtrl.setRoot(page);
   }
 
   handleError(data){

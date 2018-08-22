@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -16,16 +17,35 @@ import { EmployeesPage } from '../pages/employees/employees';
 import { TokenProvider } from '../providers/token/token';
 import { AuthInterceptor } from '../providers/auth/authInterceptor';
 import { EmployeePage } from '../pages/employee/employee';
+import { EdashboardPage } from '../pages/edashboard/edashboard';
+import { AboutPage } from '../pages/about/about';
+import { ServicesPage } from '../pages/services/services';
+import { TeamPage } from '../pages/team/team';
+import { ContactPage } from '../pages/contact/contact';
+import { EvaluationPage } from '../pages/evaluation/evaluation';
+import { EvalFilesPage } from '../pages/eval-files/eval-files';
+import { EvalFormPage } from '../pages/eval-form/eval-form';
+import { ShareProvider } from '../providers/share/share';
+import { UserprofilePage } from '../pages/userprofile/userprofile';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    AboutPage,
+    ServicesPage,
+    TeamPage,
+    ContactPage,
     LoginPage,
     DashboardPage,
     EmployeesPage,
     LogoutPage,
-    EmployeePage
+    EmployeePage,
+    EvaluationPage,
+    EvalFilesPage,
+    EvalFormPage,
+    UserprofilePage,
+    EdashboardPage
   ],
   imports: [
     BrowserModule,
@@ -36,11 +56,20 @@ import { EmployeePage } from '../pages/employee/employee';
   entryComponents: [
     MyApp,
     HomePage,
+    AboutPage,
+    ServicesPage,
+    TeamPage,
+    ContactPage,
     LoginPage,
     DashboardPage,
     EmployeesPage,
     LogoutPage,
-    EmployeePage
+    EmployeePage,
+    EvaluationPage,
+    EvalFilesPage,
+    EvalFormPage,
+    UserprofilePage,
+    EdashboardPage
   ],
   providers: [
     StatusBar,
@@ -52,7 +81,8 @@ import { EmployeePage } from '../pages/employee/employee';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    ShareProvider
   ]
 })
 export class AppModule {}

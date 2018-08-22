@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
+import { TokenProvider } from '../../providers/token/token';
+import { ShareProvider } from '../../providers/share/share';
 
 /**
  * Generated class for the LogoutPage page.
@@ -16,13 +18,15 @@ import { HomePage } from '../home/home';
   templateUrl: 'logout.html',
 })
 export class LogoutPage {
-
+  
   constructor(public navCtrl: NavController, 
-    public navParams: NavParams, public authService: AuthProvider) {
+    public navParams: NavParams, public authService: AuthProvider, public token: TokenProvider, public share: ShareProvider) {
   }
 
   ionViewDidLoad() {
     this.authService.logout();
+    this.token.remove();
+    this.share.remove();
     this.navCtrl.setRoot(HomePage);
   }
 

@@ -1,0 +1,126 @@
+<!--
+  Generated template for the EvalFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+
+    <ion-card>
+
+        <ion-card-header>
+            Evaluation Form
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Quality of Work</ion-label>
+                    <ion-select [(ngModel)]="form.quality">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Efficiency of Work</ion-label>
+                    <ion-select [(ngModel)]="form.efficiency">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Dependability</ion-label>
+                    <ion-select [(ngModel)]="form.dependability">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Job Knowledge</ion-label>
+                    <ion-select [(ngModel)]="form.job">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Attitude</ion-label>
+                    <ion-select [(ngModel)]="form.attitude">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Housekeeping</ion-label>
+                    <ion-select [(ngModel)]="form.housekeeping">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Reliability</ion-label>
+                    <ion-select [(ngModel)]="form.reliability">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Personal Care</ion-label>
+                    <ion-select [(ngModel)]="form.personal">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Judgement</ion-label>
+                    <ion-select [(ngModel)]="form.judgement">
+                        <ion-option value="0">Not Applicable</ion-option>
+                        <ion-option value="1">Unsatisfactory</ion-option>
+                        <ion-option value="2">Below Average</ion-option>
+                        <ion-option value="3">Average</ion-option>
+                        <ion-option value="4">Above Average</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Best qualities demonstrated</ion-label>
+                    <ion-textarea [(ngModel)]="form.q"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>How improvements are made</ion-label>
+                    <ion-textarea [(ngModel)]="form.i"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Comments</ion-label>
+                    <ion-textarea [(ngModel)]="form.c"></ion-textarea>
+                </ion-item>
+            </ion-list>
+
+            <button ion-button (click)="evaluate()">Evaluate</button>
+        </ion-card-content>
+
+    </ion-card>
+
+</ion-content>

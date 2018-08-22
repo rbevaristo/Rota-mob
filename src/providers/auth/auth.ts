@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -10,11 +9,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello AuthProvider Provider');
+  constructor() {
+
   }
   
   private isLoggedIn = false;
+  private isUser = false;
   // Login a user
   // Normally make a server request and store
   // e.g. the auth token
@@ -32,6 +32,18 @@ export class AuthProvider {
   // Could check if current token is still valid
   authenticated() : boolean {
     return this.isLoggedIn;
+  }
+
+  authenticatedUser() : boolean {
+    return this.isUser;
+  }
+
+  user() : void {
+    this.isUser = true;
+  }
+
+  employee() : void {
+    this.isUser = false;
   }
 
 }

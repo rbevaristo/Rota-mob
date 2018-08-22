@@ -1,5 +1,5 @@
 <!--
-  Generated template for the LoginPage page.
+  Generated template for the ContactPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,7 +9,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Rota</ion-title>
+        <ion-title>Rota Contact Us</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -19,27 +19,32 @@
     <ion-card>
 
         <ion-card-header text-center>
-            Login
+            Send us a message
         </ion-card-header>
 
         <ion-card-content padding>
             <ion-list>
 
                 <ion-item>
-                    <ion-label floating>Username</ion-label>
-                    <ion-input type="text" #username></ion-input>
+                    <ion-label floating>Name</ion-label>
+                    <ion-input type="text" #name></ion-input>
                 </ion-item>
 
                 <ion-item>
-                    <ion-label floating>Password</ion-label>
-                    <ion-input type="password" #password></ion-input>
+                    <ion-label floating>Email</ion-label>
+                    <ion-input type="email" #email></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Message</ion-label>
+                    <ion-textarea #message></ion-textarea>
                 </ion-item>
 
             </ion-list>
 
             <div padding>
 
-                <button ion-button block (click)="signin()">Sign In</button>
+                <button ion-button block (click)="send()">Sign In</button>
 
             </div>
 

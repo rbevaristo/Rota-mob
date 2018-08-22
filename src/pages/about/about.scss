@@ -1,0 +1,13 @@
+page-about {
+    .card-background-page {
+        background-color: color($colors, lightgray);
+        ion-card {
+            background-color: color($colors, lightgray);
+        }
+        ion-card-header {
+            color: #478dd2;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+    }
+}

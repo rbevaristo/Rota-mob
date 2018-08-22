@@ -11,23 +11,29 @@ import { Injectable } from '@angular/core';
 export class TokenProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello TokenProvider Provider');
+
   }
 
-  handle(token){
-    this.set(token);
+  handle(token, user){
+    this.set(token, user);
   }
 
-  set(token){
+  set(token, user){
     localStorage.setItem('token', token);
+    localStorage.setItem('user', user);
   }
 
   get(){
     return localStorage.getItem('token');
   }
 
+  getUser(){
+    return localStorage.getItem('user');
+  }
+
   remove(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   }
 
 }

@@ -1,0 +1,22 @@
+<!--
+  Generated template for the EvalFilesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+            Files
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-list>
+                <button ion-item *ngFor="let e of files" (click)="selectedFile(e.url)">
+                  {{ e.filename }}
+                </button>
+            </ion-list>
+        </ion-card-content>
+
+    </ion-card>
+</ion-content>
