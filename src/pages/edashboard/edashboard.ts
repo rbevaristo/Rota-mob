@@ -19,7 +19,7 @@ export class EdashboardPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EdashboardPage');
+   
   }
 
 }

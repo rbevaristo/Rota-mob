@@ -68,7 +68,7 @@ export class EvalFormPage {
   evaluate(){
     this.form.employee = this.employee.id;
     //console.log(this.form);
-    this.http.post('http://localhost:8000/api/v1/evaluate', this.form).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.http.post('http://localhost/rota/public/api/v1/evaluate', this.form).subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
 

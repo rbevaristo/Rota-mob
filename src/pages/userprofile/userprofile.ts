@@ -38,7 +38,7 @@ export class UserprofilePage {
   }
 
   getMyData(){
-    this.http.get('http://localhost:8000/api/v1/profile').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.http.get('http://localhost/rota/public/api/v1/profile').subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){
@@ -61,7 +61,7 @@ export class UserprofilePage {
   }
 
   editProfile(){
-    this.http.post('http://localhost:8000/api/v1/profile/update', this.profile).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.http.post('http://localhost/rota/public/api/v1/profile/update', this.profile).subscribe(data => this.handleResponse(data), error => this.handleError(error));
 
   }
 

@@ -24,7 +24,7 @@ export class EmpevalfilesPage {
   }
 
   getMyData(){
-    this.http.get('http://localhost:8000/api/v1/employee/evaluation/files').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.http.get('http://localhost/rota/public/api/v1/employee/evaluation/files').subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){

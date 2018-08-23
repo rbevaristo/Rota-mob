@@ -65,7 +65,14 @@ export class LoginPage {
           password: this.password.value.toLowerCase()
         };
   
-        this.http.post('http://localhost:8000/api/v1/login', form).subscribe(
+        this.http.post('http://localhost/rota/public/api/v1/login', form,{
+          headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
+            'X-Random-Shit':'123123123'
+          }
+        }).subscribe(
           data => this.handleResponse(data, DashboardPage),
           error => this.handleError(error)
         );
@@ -75,7 +82,7 @@ export class LoginPage {
           password: this.password.value.toLowerCase()
         };
   
-        this.http.post('http://localhost:8000/api/v1/employee/login', form).subscribe(
+        this.http.post('http://localhost/rota/public/api/v1/employee/login', form).subscribe(
           data => this.handleResponse(data, EdashboardPage),
           error => this.handleError(error)
         );

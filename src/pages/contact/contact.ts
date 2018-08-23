@@ -54,7 +54,7 @@ export class ContactPage {
           message: this.message.value
         };
   
-        this.http.post('http://localhost:8000/api/v1/send', form).subscribe(
+        this.http.post('http://localhost/rota/public/api/v1/send', form).subscribe(
           data => this.handleResponse(data),
           error => this.handleError(error)
         );
