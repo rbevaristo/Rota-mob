@@ -20,7 +20,11 @@
             Schedule
         </ion-card-header>
         <ion-card-content>
-
+            <ion-list *ngFor="let item of s">
+                <button ion-item *ngFor="let e of item">
+                    {{ e.date }} - {{ e.shift }}
+                </button>
+            </ion-list>
         </ion-card-content>
     </ion-card>
 </ion-content>

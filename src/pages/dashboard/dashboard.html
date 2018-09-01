@@ -21,7 +21,7 @@
         </ion-card-header>
         <ion-card-content>
             <ion-list>
-                <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+                <button ion-item *ngFor="let item of items" (click)="selectedFile(item.url)">
                   {{ item.filename }}
                 </button>
             </ion-list>

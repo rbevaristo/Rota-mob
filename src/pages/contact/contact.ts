@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, TextInput } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the ContactPage page.
@@ -18,7 +19,7 @@ export class ContactPage {
   @ViewChild('name') name;
   @ViewChild('email') email;
   @ViewChild('message') message : TextInput;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public api: ApiProvider) {
   }
 
   ionViewDidLoad() {
@@ -53,8 +54,8 @@ export class ContactPage {
           email: this.email.value,
           message: this.message.value
         };
-  
-        this.http.post('http://localhost/rota/public/api/v1/send', form).subscribe(
+        
+        this.api.send(form).subscribe(
           data => this.handleResponse(data),
           error => this.handleError(error)
         );

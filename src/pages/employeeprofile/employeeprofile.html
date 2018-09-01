@@ -21,6 +21,7 @@
         <ion-card-content>
 
             <ion-list>
+
                 <ion-item>
                     <ion-label floating>Firstname</ion-label>
                     <ion-input type="text" [(ngModel)]="profile.firstname"></ion-input>
@@ -39,14 +40,14 @@
                 <ion-item>
                     <ion-label>Gender</ion-label>
                     <ion-select [(ngModel)]="profile.gender">
-                        <ion-option value="0">Male</ion-option>
-                        <ion-option value="1">Female</ion-option>
+                        <ion-option value="Male">Male</ion-option>
+                        <ion-option value="Female">Female</ion-option>
                     </ion-select>
                 </ion-item>
 
                 <ion-item>
-                    <ion-label floating></ion-label>
-                    <ion-input type="date" [(ngModel)]="profile.birthday"></ion-input>
+                    <ion-label>Birthday</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="profile.birthdate"></ion-datetime>
                 </ion-item>
 
                 <ion-item>
@@ -81,7 +82,7 @@
 
                 <ion-item>
                     <ion-label floating>Country</ion-label>
-                    <ion-input type="text" [(ngModel)]="profile.country"></ion-input>
+                    <ion-input type="text" [(ngModel)]="profile.country" disabled></ion-input>
                 </ion-item>
 
             </ion-list>

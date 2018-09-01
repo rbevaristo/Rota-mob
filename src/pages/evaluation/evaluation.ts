@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { EvalFilesPage } from '../eval-files/eval-files';
 import { EvalFormPage } from '../eval-form/eval-form';
 import { ShareProvider } from '../../providers/share/share';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the EvaluationPage page.
@@ -24,7 +25,7 @@ export class EvaluationPage {
   tab1:any;
   tab2:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public share: ShareProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider, public share: ShareProvider) {
     this.employee = navParams.get('data');
     this.tab1 = EvalFilesPage;
     // this.tab2 = EvalFormPage;
@@ -37,7 +38,7 @@ export class EvaluationPage {
   }
 
   getEvaluationData(){
-    this.http.get('http://localhost/rota/public/api/v1/evaluations/'+this.employee.id).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.evalData(this.employee.id).subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){

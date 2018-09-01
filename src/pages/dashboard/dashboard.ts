@@ -32,4 +32,8 @@ export class DashboardPage {
   handleError(error){
     console.log(error);
   }
+
+  selectedFile(url){
+    window.open(url);
+  }
 }

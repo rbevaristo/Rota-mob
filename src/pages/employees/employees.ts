@@ -4,6 +4,7 @@ import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { EmployeePage } from '../employee/employee';
 import { EvaluationPage } from '../evaluation/evaluation';
 import { ShareProvider } from '../../providers/share/share';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the EmployeesPage page.
@@ -19,7 +20,7 @@ import { ShareProvider } from '../../providers/share/share';
 })
 export class EmployeesPage {
   employees: Array<{}>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public share: ShareProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public share: ShareProvider, public api: ApiProvider) {
   }
 
   ionViewDidLoad() {
@@ -27,7 +28,7 @@ export class EmployeesPage {
   }
 
   getEmployees(){
-    this.http.get('http://localhost/rota/public/api/v1/employees').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.employees().subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){

@@ -19,7 +19,7 @@ export class TeamPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TeamPage');
+   
   }
 
 }

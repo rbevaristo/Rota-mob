@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, TextInput, AlertController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the RequestPage page.
@@ -15,12 +15,14 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'request.html',
 })
 export class RequestPage {
-  employee:any
-  @ViewChild('title') title: any;
-  @ViewChild('from') from: any;
-  @ViewChild('to') to: any;
+  employee:any;
+  request = {
+    title: null,
+    from: null,
+    to: null
+  };
   @ViewChild('message') message: TextInput;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -28,7 +30,7 @@ export class RequestPage {
   }
 
   getMyData(){
-    this.http.get('http://localhost/rota/public/api/v1/employee/profile').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.eprofile().subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){
@@ -38,6 +40,10 @@ export class RequestPage {
       buttons: ['OK']
     });
     alert.present();
+    this.request.title = null;
+    this.request.from = null;
+    this.request.to = null;
+    this.message.value = null;
   }
 
   handleError(error){
@@ -47,12 +53,12 @@ export class RequestPage {
 
   send(){
     let form = {
-      title: this.title.value,
-      from: this.from.value,
-      to: this.to.value,
+      title: this.request.title,
+      from: this.request.from,
+      to: this.request.to,
       message: this.message.value
     };
-    this.http.post('http://localhost/rota/public/api/v1/employee/request/leave', form).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.erequest(form).subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { ShareProvider } from '../../providers/share/share';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the EvalFilesPage page.
@@ -18,7 +19,7 @@ import { ShareProvider } from '../../providers/share/share';
 export class EvalFilesPage {
   employee: any;
   files: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public share: ShareProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider, public share: ShareProvider) {
     this.employee = JSON.parse(share.get());
   }
 
@@ -29,7 +30,7 @@ export class EvalFilesPage {
   }
 
   getEvaluationData(){
-    this.http.get('http://localhost/rota/public/api/v1/evaluations/'+this.employee.id).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.evalData(this.employee.id).subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the EmpevalfilesPage page.
@@ -16,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmpevalfilesPage {
   files: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider) {
   }
 
   ionViewDidLoad() {
@@ -24,7 +25,7 @@ export class EmpevalfilesPage {
   }
 
   getMyData(){
-    this.http.get('http://localhost/rota/public/api/v1/employee/evaluation/files').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.efiles().subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){

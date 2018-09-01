@@ -26,20 +26,20 @@
             <ion-list>
                 <ion-item>
                     <ion-label>Request</ion-label>
-                    <ion-select #title>
+                    <ion-select [(ngModel)]="request.title">
                         <ion-option value="Vacation Leave">Vacation Leave</ion-option>
                         <ion-option value="Sick Leave">Sick Leave</ion-option>
                         <ion-option value="Emergency Leave">Emergency Leave</ion-option>
                     </ion-select>
                 </ion-item>
                 <ion-item>
-                    <ion-label>From</ion-label>
-                    <ion-input type="date" #from></ion-input>
+                    <ion-label>Date</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="request.from"></ion-datetime>
                 </ion-item>
 
                 <ion-item>
-                    <ion-label>To</ion-label>
-                    <ion-input type="date" #to></ion-input>
+                    <ion-label>Date</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="request.to"></ion-datetime>
                 </ion-item>
                 <ion-item>
                     <ion-label>Message</ion-label>

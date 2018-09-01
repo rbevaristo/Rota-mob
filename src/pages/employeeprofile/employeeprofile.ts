@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the EmployeeprofilePage page.
@@ -20,7 +21,7 @@ export class EmployeeprofilePage {
     lastname: null,
     email: null,
     gender: null,
-    birthday: null,
+    birthdate: null,
     mobile: null,
     number: null,
     street: null,
@@ -30,7 +31,7 @@ export class EmployeeprofilePage {
     country: null
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -38,7 +39,7 @@ export class EmployeeprofilePage {
   }
 
   getMyData(){
-    this.http.get('http://localhost/rota/public/api/v1/employee/profile').subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.eprofile().subscribe(data => this.handleResponse(data), error => this.handleError(error));
   }
 
   handleResponse(data){
@@ -46,7 +47,7 @@ export class EmployeeprofilePage {
     this.profile.lastname = data.data.lastname;
     this.profile.email = data.data.email;
     this.profile.gender = data.data.gender;
-    this.profile.birthday = data.data.birthday;
+    this.profile.birthdate = data.data.birthdate;
     this.profile.mobile = data.data.mobile;
     this.profile.number = data.data.number;
     this.profile.street = data.data.street;
@@ -61,7 +62,24 @@ export class EmployeeprofilePage {
   }
 
   editProfile(){
-    this.http.post('http://localhost/rota/public/api/v1/employee/profile/update', this.profile).subscribe(data => this.handleResponse(data), error => this.handleError(error));
+    this.api.eupdateProfile(this.profile).subscribe(data => this.handleEditResponse(data), error => this.handleEditError(error));
+  }
 
+  handleEditResponse(data) {
+    const alert = this.alertCtrl.create({
+      title: 'Success',
+      subTitle: 'Updated',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  handleEditError(error) {
+    const alert = this.alertCtrl.create({
+      title: 'Error',
+      subTitle: 'Profile Update Error',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

@@ -64,7 +64,7 @@ export class LoginPage {
       if(this.validateEmail(this.username.value)){
         let form = {
           email: this.username.value.toLowerCase(),
-          password: this.password.value.toLowerCase()
+          password: this.password.value
         };
         
         this.api.login(form).subscribe(
@@ -106,6 +106,7 @@ export class LoginPage {
   }
 
   handleError(data){
+    console.log(data);
     const alert = this.alertCtrl.create({
       title: 'Error',
       subTitle: 'Incorrect Username or Password!',
