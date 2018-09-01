@@ -5,6 +5,7 @@ import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { DashboardPage } from '../dashboard/dashboard';
 import { TokenProvider } from '../../providers/token/token';
 import { EdashboardPage } from '../edashboard/edashboard';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the LoginPage page.
@@ -30,7 +31,8 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public http: HttpClient,
     public auth: AuthProvider,
-    public token: TokenProvider
+    public token: TokenProvider,
+    public api: ApiProvider
     ) {
   }
 
@@ -64,28 +66,21 @@ export class LoginPage {
           email: this.username.value.toLowerCase(),
           password: this.password.value.toLowerCase()
         };
-  
-        this.http.post('http://localhost/rota/public/api/v1/login', form,{
-          headers:{
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
-            'X-Random-Shit':'123123123'
-          }
-        }).subscribe(
+        
+        this.api.login(form).subscribe(
           data => this.handleResponse(data, DashboardPage),
           error => this.handleError(error)
-        );
+        )
       } else {
         let form = {
           username: this.username.value.toLowerCase(),
           password: this.password.value.toLowerCase()
         };
   
-        this.http.post('http://localhost/rota/public/api/v1/employee/login', form).subscribe(
+        this.api.elogin(form).subscribe(
           data => this.handleResponse(data, EdashboardPage),
           error => this.handleError(error)
-        );
+        )
       }
       
     }

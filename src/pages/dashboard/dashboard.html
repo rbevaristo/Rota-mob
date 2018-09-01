@@ -20,7 +20,11 @@
             Schedule
         </ion-card-header>
         <ion-card-content>
-
+            <ion-list>
+                <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+                  {{ item.filename }}
+                </button>
+            </ion-list>
         </ion-card-content>
     </ion-card>
 </ion-content>

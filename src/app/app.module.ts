@@ -30,6 +30,7 @@ import { UserprofilePage } from '../pages/userprofile/userprofile';
 import { EmployeeprofilePage } from '../pages/employeeprofile/employeeprofile';
 import { RequestPage } from '../pages/request/request';
 import { EmpevalfilesPage } from '../pages/empevalfiles/empevalfiles';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { EmpevalfilesPage } from '../pages/empevalfiles/empevalfiles';
       useClass: AuthInterceptor,
       multi: true
     },
-    ShareProvider
+    ShareProvider,
+    ApiProvider
   ]
 })
 export class AppModule {}

@@ -38,7 +38,7 @@
 
                 <ion-item>
                     <ion-label>Gender</ion-label>
-                    <ion-select [(ngModel)]="profile.gender">
+                    <ion-select #gender>
                         <ion-option value="0">Male</ion-option>
                         <ion-option value="1">Female</ion-option>
                     </ion-select>
@@ -46,12 +46,12 @@
 
                 <ion-item>
                     <ion-label floating></ion-label>
-                    <ion-input type="date" [(ngModel)]="profile.birthday"></ion-input>
+                    <ion-input type="date" #birthdate></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Mobile</ion-label>
-                    <ion-input type="number" [(ngModel)]="profile.mobile"></ion-input>
+                    <ion-input type="number" #mobile></ion-input>
                 </ion-item>
 
                 <ion-item>
