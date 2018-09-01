@@ -55,7 +55,7 @@ export class ApiProvider {
   }
 
   eupdateProfile(data){
-    return this.http.get(`${this.baseUrl}/employee/profile/update`, data);
+    return this.http.post(`${this.baseUrl}/employee/profile/update`, data);
   }
 
   eschedule(){

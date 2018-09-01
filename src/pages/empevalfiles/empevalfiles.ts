@@ -37,6 +37,6 @@ export class EmpevalfilesPage {
   }
 
   selectedFile(url){
-    window.open(url);
+    window.open('http://routa.me/public/storage/pdf/'+url);
   }
 }
