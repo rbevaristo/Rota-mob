@@ -34,6 +34,8 @@ export class DashboardPage {
   }
 
   selectedFile(url){
-    window.open(url);
+    // window.open(url);
+  window.open(encodeURI('https://docs.google.com/gview?embedded=true&url=' + url), '_blank', 'location=yes,EnableViewPortScale=yes');
+    
   }
 }
