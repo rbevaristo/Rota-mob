@@ -31,6 +31,7 @@ import { EmployeeprofilePage } from '../pages/employeeprofile/employeeprofile';
 import { RequestPage } from '../pages/request/request';
 import { EmpevalfilesPage } from '../pages/empevalfiles/empevalfiles';
 import { ApiProvider } from '../providers/api/api';
+import { EloginPage } from '../pages/elogin/elogin';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ApiProvider } from '../providers/api/api';
     TeamPage,
     ContactPage,
     LoginPage,
+    EloginPage,
     DashboardPage,
     EmployeesPage,
     LogoutPage,
@@ -68,6 +70,7 @@ import { ApiProvider } from '../providers/api/api';
     TeamPage,
     ContactPage,
     LoginPage,
+    EloginPage,
     DashboardPage,
     EmployeesPage,
     LogoutPage,
@@ -87,13 +90,13 @@ import { ApiProvider } from '../providers/api/api';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     TokenProvider,
+    ShareProvider,
+    ApiProvider,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    },
-    ShareProvider,
-    ApiProvider
+    }
   ]
 })
 export class AppModule {}

@@ -18,6 +18,7 @@ import { UserprofilePage } from '../pages/userprofile/userprofile';
 import { EmployeeprofilePage } from '../pages/employeeprofile/employeeprofile';
 import { RequestPage } from '../pages/request/request';
 import { EmpevalfilesPage } from '../pages/empevalfiles/empevalfiles';
+import { EloginPage } from '../pages/elogin/elogin';
 
 @Component({
   templateUrl: 'app.html'
@@ -46,7 +47,8 @@ export class MyApp {
       { title: 'Services', component: ServicesPage },
       { title: 'Team', component: TeamPage },
       { title: 'Contact Us', component: ContactPage },
-      { title: 'Login', component: LoginPage}
+      { title: 'Login as Manager', component: LoginPage},
+      { title: 'Login as Employee', component: EloginPage}
     ];
     this.dashboardPages = [
       { title: 'Dashboard', component: DashboardPage},

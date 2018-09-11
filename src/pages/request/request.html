@@ -33,12 +33,12 @@
                     </ion-select>
                 </ion-item>
                 <ion-item>
-                    <ion-label>Date</ion-label>
+                    <ion-label>Date From</ion-label>
                     <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="request.from"></ion-datetime>
                 </ion-item>
 
                 <ion-item>
-                    <ion-label>Date</ion-label>
+                    <ion-label>Date To</ion-label>
                     <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="request.to"></ion-datetime>
                 </ion-item>
                 <ion-item>
@@ -50,7 +50,7 @@
 
             <div padding>
 
-                <button ion-button block (click)="send()">Sign In</button>
+                <button ion-button block (click)="send()">Send</button>
 
             </div>
 

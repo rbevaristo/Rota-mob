@@ -1,0 +1,22 @@
+page-elogin {
+    .card-background-page {
+        background-color: color($colors, lightgray);
+        ion-card {
+            position: relative;
+            text-align: center;
+            background-color: color($colors, lightgray);
+        }
+        ion-card-header {
+            background-color: color($colors, dark);
+            color: #fff
+        }
+        ion-card-content {
+            ion-item {
+                background-color: color($colors, lightgray);
+                ion-label {
+                    color: #000;
+                }
+            }
+        }
+    }
+}

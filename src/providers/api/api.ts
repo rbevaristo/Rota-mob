@@ -13,8 +13,8 @@ export class ApiProvider {
   constructor(public http: HttpClient) {
   }
 
-  private baseUrl = 'http://routa.me/api/v1';
-  //private baseUrl = 'http://localhost/rota/public/api/v1';
+  private baseUrl = 'http://routa.me/api/v2';
+  // private baseUrl = 'http://localhost/routa/public/api/v2';
 
   // Admin Routes
   login(data){

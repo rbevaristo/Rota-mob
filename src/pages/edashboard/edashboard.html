@@ -14,17 +14,22 @@
 </ion-header>
 
 
-<ion-content padding>
-    <ion-card>
-        <ion-card-header>
-            Schedule
-        </ion-card-header>
-        <ion-card-content>
-            <ion-list *ngFor="let item of s">
-                <button ion-item *ngFor="let e of item">
-                    {{ e.date }} - {{ e.shift }}
-                </button>
-            </ion-list>
-        </ion-card-content>
-    </ion-card>
+<ion-content>
+
+    <ion-slides #Slides>
+        <div *ngFor="let item of s">
+            <ion-slide *ngFor="let e of item">
+                <div class="content">
+                    <h1 class="top">
+                        Current Schedule <br>{{ current.date }} <br> {{ current.shift }}
+                    </h1>
+                    <h6 color="light">
+                        <<[Swipe to view schedules]>>
+                    </h6>
+                    <h1>{{ e.date }}</h1>
+                    <h2>{{ e.shift }}</h2>
+                </div>
+            </ion-slide>
+        </div>
+    </ion-slides>
 </ion-content>

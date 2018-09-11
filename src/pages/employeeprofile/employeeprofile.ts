@@ -62,6 +62,15 @@ export class EmployeeprofilePage {
   }
 
   editProfile(){
+    if(this.profile.gender == "" || this.profile.birthdate == null){
+      const alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: 'Gender and Birthday are required',
+        buttons: ['OK']
+      });
+      alert.present();
+      return false;
+    }
     this.api.eupdateProfile(this.profile).subscribe(data => this.handleEditResponse(data), error => this.handleEditError(error));
   }
 

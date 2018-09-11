@@ -2,12 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
-import { DashboardPage } from '../dashboard/dashboard';
 import { TokenProvider } from '../../providers/token/token';
+import { EdashboardPage } from '../edashboard/edashboard';
 import { ApiProvider } from '../../providers/api/api';
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the EloginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,10 +15,10 @@ import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-elogin',
+  templateUrl: 'elogin.html',
 })
-export class LoginPage {
+export class EloginPage {
   @ViewChild('username') username;
   @ViewChild('password') password;
 
@@ -64,27 +64,30 @@ export class LoginPage {
         username: this.username.value,
         password: this.password.value
       };
-      this.isManager(form);
+
+      this.isEmployee(form);
     }
   }
 
-  isManager(form){
-    this.api.login(form).subscribe(
-      data => this.handleResponse(data, DashboardPage),
+
+  isEmployee(form){
+    this.api.elogin(form).subscribe(
+      data => this.handleResponse(data, EdashboardPage),
       error => this.handleError(error)
     )
   }
 
-
   handleResponse(data, page){
+    console.log(data);
     this.auth.login();
-      this.who = 'user';
-      this.auth.user();
+    this.who = 'employee';
+    this.auth.employee();
     this.token.handle(data.access_token, this.who);
     this.navCtrl.setRoot(page);
   }
 
   handleError(data){
+    console.log(data);
     const alert = this.alertCtrl.create({
       title: 'Error',
       subTitle: 'Incorrect Username or Password!',
