@@ -38,6 +38,6 @@ export class EmpevalfilesPage {
 
   selectedFile(url){
   window.open(encodeURI('https://docs.google.com/gview?embedded=true&url=http://routa.me/routa/public/storage/pdf/'+url), '_blank', 'location=yes,EnableViewPortScale=yes');
-    // window.open('http://routa.me/public/storage/pdf/'+url);
+    // window.open('http://routa.me/routa/public/storage/pdf/'+url, '_system');
   }
 }
